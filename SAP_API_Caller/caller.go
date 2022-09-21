@@ -56,21 +56,21 @@ func (c *SAPAPICaller) Header(customerReturn string) {
 	if err != nil {
 		c.log.Error(err)
 	} else {
-		c.log.Info(itemPricingElementData)
+		c.log.Info(headerData)
 	}
 
 	headerPartnerData, err := c.callToHeaderPartner(headerData[0].ToHeaderPartner)
 	if err != nil {
 		c.log.Error(err)
 	} else {
-		c.log.Info(itemPricingElementData)
+		c.log.Info(headerPartnerData)
 	}
 
 	itemData, err := c.callToItem(headerData[0].ToItem)
 	if err != nil {
 		c.log.Error(err)
 	} else {
-		c.log.Info(itemPricingElementData)
+		c.log.Info(itemData)
 	}
 
 	itemPricingElementData, err := c.callToItemPricingElement(itemData[0].ToItemPricingElement)
@@ -84,14 +84,14 @@ func (c *SAPAPICaller) Header(customerReturn string) {
 	if err != nil {
 		c.log.Error(err)
 	} else {
-		c.log.Info(itemPricingElementData)
+		c.log.Info(itemProcessStepData)
 	}
 
 	itemScheduleLineData, err := c.callToItemScheduleLine(itemData[0].ToItemScheduleLine)
 	if err != nil {
 		c.log.Error(err)
 	} else {
-		c.log.Info(itemPricingElementData)
+		c.log.Info(itemScheduleLineData)
 	}
 	return
 }
